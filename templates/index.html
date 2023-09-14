@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/style.css" />
+    <title>Books</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>TW Project - Web Crawler - Sebastian Delorean</h1>
+      <a
+        href="{{ url_for('download', file_name='books.csv') }}"
+        class="download-btn"
+        >Download CSV</a
+      >
+      <a
+        href="{{ url_for('download', file_name='books.xml') }}"
+        class="download-btn"
+        >Download XML</a
+      >
+    </div>
+
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>URL</th>
+      </tr>
+      {% for title, url in books %}
+      <tr>
+        <td>{{ title }}</td>
+        <td>
+          <a href="https://books.toscrape.com/{{ url }}"
+            >https://books.toscrape.com/{{ url }}</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
